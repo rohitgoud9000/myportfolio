@@ -1,0 +1,20 @@
+<!-- users/templates/users/projects.html -->
+{% extends 'users/base.html' %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+<section>
+    <h2 class="text-3xl font-semibold mb-4">My Projects</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4" *repeat="3">
+            <div class="card h-100">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Project image">
+                <div class="card-body">
+                    <h5 class="card-title">Project Title</h5>
+                    <p class="card-text">Brief description of the project and technologies used.</p>
+                    <a href="#" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

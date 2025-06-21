@@ -1,0 +1,96 @@
+{% extends 'users/base.html' %}
+
+{% block title %}About | Rohit Goud{% endblock %}
+
+{% block content %}
+<section class="min-h-screen bg-gradient-to-r from-sky-100 via-purple-100 to-pink-100 text-gray-900 py-12 px-4 sm:px-8 lg:px-20">
+    <div class="max-w-6xl mx-auto">
+
+        <!-- About Me -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">About Me</h2>
+            <p class="text-lg leading-relaxed">
+                Hi, I'm <span class="text-blue-600 font-semibold">Rohit Goud</span> — a passionate and detail-oriented developer with experience in creating modern, responsive web, mobile, and desktop applications.
+                I enjoy turning ideas into real-world solutions using clean code and intuitive design.
+            </p>
+            <p class="text-lg leading-relaxed mt-4">
+                With a strong foundation in both frontend and backend technologies, I focus on building efficient, scalable, and user-friendly systems.
+                I’m a continuous learner who loves staying updated with the latest tech trends.
+            </p>
+            <a href="/static/Rohit_Goud_CV.pdf" download class="mt-6 inline-block px-6 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition">
+                Download CV
+            </a>
+        </div>
+
+        <!-- Skills Section -->
+        <div>
+            <h3 class="text-3xl font-semibold mb-8 text-center">🛠 Skills</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Frontend -->
+                <div class="bg-white rounded-lg p-6 shadow-lg hover:shadow-2xl transition">
+                    <h4 class="text-xl font-semibold text-blue-600 mb-4">🖥️ Frontend Development</h4>
+                    <ul class="space-y-4">
+                        {% for skill, level, color in frontend_skills %}
+                        <li>
+                            {{ skill }}
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                <div class="{{ color }} h-2 rounded-full" style="width: {{ level }}%"></div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-white rounded-lg p-6 shadow-lg hover:shadow-2xl transition">
+                    <h4 class="text-xl font-semibold text-blue-600 mb-4">🔧 Backend Development</h4>
+                    <ul class="space-y-4">
+                        {% for skill, level, color in backend_skills %}
+                        <li>
+                            {{ skill }}
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                <div class="{{ color }} h-2 rounded-full" style="width: {{ level }}%"></div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Database & Tools -->
+                <div class="bg-white rounded-lg p-6 shadow-lg hover:shadow-2xl transition">
+                    <h4 class="text-xl font-semibold text-blue-600 mb-4">🗄️ Database & Tools</h4>
+                    <ul class="space-y-4">
+                        {% for skill, level, color in db_skills %}
+                        <li>
+                            {{ skill }}
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                <div class="{{ color }} h-2 rounded-full" style="width: {{ level }}%"></div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        {% for tool in tools %}
+                        <li>{{ tool }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Projects & Timeline -->
+        <div class="mt-16">
+            <h3 class="text-3xl font-semibold mb-8 text-center">🚀 Projects & Timeline</h3>
+            <div class="border-l-4 border-blue-500 pl-6">
+                {% for year, title, desc in projects %}
+                <div class="mb-8">
+                    <h4 class="text-xl font-bold text-blue-700">{{ year }} - {{ title }}</h4>
+                    <p class="text-gray-700">{{ desc }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

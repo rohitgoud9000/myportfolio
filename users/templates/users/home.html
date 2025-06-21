@@ -1,0 +1,76 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %}Home | Rohit Goud{% endblock %}
+
+{% block content %}
+
+<!-- ✅ Toast Message -->
+{% if messages %}
+<div class="fixed top-4 right-4 z-50 w-auto" id="toast-container">
+  {% for message in messages %}
+    <div class="flex items-center justify-between px-4 py-3 text-sm text-green-800 bg-green-100 border border-green-300 rounded shadow-md animate-fade-in-up transition-all duration-500 ease-in-out">
+      <div class="flex items-center">
+        <svg class="w-5 h-5 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-4l6-6-1.5-1.5L9 11l-2-2L5.5 10.5 9 14z" clip-rule="evenodd" />
+        </svg>
+        <span>{{ message }}</span>
+      </div>
+      <button onclick="document.getElementById('toast-container').remove()" class="ml-4 text-green-800 hover:text-red-600 text-xl leading-none">&times;</button>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 py-16">
+  <div class="container mx-auto text-center px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-2 animate-fade-in-up">Hi, I’m Rohit Goud</h1>
+    <p class="text-xl md:text-2xl font-medium text-gray-700 mb-6 animate-fade-in-up delay-100">Full Stack Developer</p>
+    <p class="text-lg md:text-xl text-gray-600 italic mb-8 animate-fade-in-up delay-200">I build modern web and mobile solutions.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up delay-300">
+      <a href="{% static 'Rohit_Goud_CV.pdf' %}" download class="btn btn-primary px-5 py-2 rounded-full text-white bg-blue-600 hover:bg-blue-700 shadow transition transform hover:scale-105">
+        📄 Download Resume
+      </a>
+      <a href="{% url 'contact' %}" class="btn btn-outline-dark px-5 py-2 rounded-full hover:bg-gray-800 hover:text-white shadow transition transform hover:scale-105">
+        📬 Contact Me
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Short About Section -->
+<section class="bg-white py-12 px-4 sm:px-8">
+  <div class="max-w-4xl mx-auto text-center animate-fade-in">
+    <h2 class="text-3xl font-bold mb-4">About Me</h2>
+    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+      I'm a passionate full stack developer who loves turning creative ideas into powerful digital experiences.
+      With skills in both frontend and backend, I build modern, scalable applications for web, mobile, and desktop.
+    </p>
+    <a href="{% url 'about' %}" class="text-blue-600 hover:underline font-semibold">Read more about me →</a>
+  </div>
+</section>
+
+<!-- Social Media Section -->
+<section class="bg-gray-100 py-10">
+  <div class="text-center">
+    <h3 class="text-2xl font-semibold mb-6 animate-fade-in">Follow Me</h3>
+    <div class="flex justify-center space-x-6 text-3xl animate-zoom-in">
+      <a href="https://github.com/rohitgoud9000" target="_blank" class="hover:text-black transition transform hover:scale-110">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/rohitgoud9000" target="_blank" class="hover:text-blue-700 transition transform hover:scale-110">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/rohitgoud9000" target="_blank" class="hover:text-blue-400 transition transform hover:scale-110">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://rohitgoud9000.hashnode.dev" target="_blank" class="hover:text-purple-600 transition transform hover:scale-110">
+        <i class="fas fa-blog"></i>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+s
